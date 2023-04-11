@@ -1,0 +1,150 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "sản phẩm 1",
+      "price": 1000,
+      "image": "https://cafebiz.cafebizcdn.vn/2019/11/22/photo-1-15744133602491143626658.jpg"
+    },
+    {
+      "id": 2,
+      "name": "xe hoi 2222",
+      "price": 2000,
+      "image": "https://vnn-imgs-f.vgcloud.vn/2020/10/21/10/huracan-la-mo-t-trong-nhu-ng-ma-u-xe-de-p-nha-t-cu-a-lamborghini-a-nh-autocar.jpg",
+      "categoryId": 2,
+      "description": "manhabc"
+    },
+    {
+      "name": "ip x",
+      "categoryId": 1,
+      "price": "22222",
+      "image": "https://carshop.vn/wp-content/uploads/2022/07/hinh-nen-xe-oto-dep-39.jpg",
+      "description": "dâdasads",
+      "id": 3
+    },
+    {
+      "name": "xe hơi",
+      "categoryId": 2,
+      "price": 222233,
+      "image": "https://static.tuoitre.vn/tto/i/s1280/2017/06/06/image-12-1496742696.jpg",
+      "description": "décxdcđs",
+      "id": 4
+    },
+    {
+      "name": "manhcxph28434",
+      "categoryId": 1,
+      "price": 2421,
+      "description": "vdsv",
+      "id": 5
+    },
+    {
+      "name": "Cao Cao",
+      "categoryId": 2,
+      "price": 23231,
+      "description": "cscv",
+      "id": 7
+    },
+    {
+      "name": "sâfasas",
+      "categoryId": 1,
+      "price": 233,
+      "description": "dcscx",
+      "id": 9
+    },
+    {
+      "name": "ip x",
+      "categoryId": 2,
+      "price": 2212,
+      "description": "sadasdas",
+      "id": 10
+    },
+    {
+      "name": "audi 11",
+      "categoryId": 1,
+      "price": 2231,
+      "description": "dsadsa",
+      "id": 11
+    },
+    {
+      "name": "Cao Cao",
+      "categoryId": 1,
+      "price": 233,
+      "description": "dsadasds",
+      "id": 12
+    },
+    {
+      "name": "ip x",
+      "categoryId": 2,
+      "price": 21321,
+      "description": "dcscsđsc",
+      "id": 13
+    },
+    {
+      "name": "anh them",
+      "categoryId": 1,
+      "price": 2132,
+      "description": "dsadcdzx",
+      "id": 14
+    },
+    {
+      "name": "tom anh chuot",
+      "categoryId": 1,
+      "price": 1000,
+      "description": "sacsdv",
+      "id": 15
+    },
+    {
+      "name": "anh upload",
+      "categoryId": 2,
+      "price": 213,
+      "id": 16
+    },
+    {
+      "name": "anh 221",
+      "categoryId": 2,
+      "price": 3323,
+      "upload": {
+        "id": 3
+      },
+      "id": 17
+    },
+    {
+      "name": "abcde",
+      "categoryId": 1,
+      "price": 7,
+      "id": 18
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Audi"
+    },
+    {
+      "id": 2,
+      "name": "Lamborghini"
+    },
+    {
+      "name": "máy tính",
+      "id": 3
+    },
+    {
+      "name": "xe hơi",
+      "id": 4
+    }
+  ],
+  "upload": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    }
+  ]
+}
