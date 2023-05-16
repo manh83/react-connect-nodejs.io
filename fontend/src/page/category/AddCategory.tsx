@@ -1,65 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { ICategory } from "../../model/interface";
-import { getCategory } from "../../api/category";
-
-const { TextArea } = Input;
-import {
-  Button,
-  Form,
-  Input,
-  Space,
-} from "antd";
-
+import { useForm,SubmitHandler } from "react-hook-form";
+import { log } from "console";
 
 interface IProps {
     onAddCategory: (category: ICategory) => void;
 }
+interface IFormInput{
+  _id: string;
+  name: string;
+}  
 
 
 const AddCategory = (props: IProps) => {
-
-  const onFinish = async (values: any) => {
-      props.onAddCategory(values);
-  };
- 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-  };
-
+  const {register,handleSubmit} = useForm<IFormInput>()
+  const onHandleSubmit:SubmitHandler<IFormInput> =  (data:ICategory) =>{
+      props.onAddCategory(data)
+      console.log(data);
+  } 
   
   return (
-    <Form
-      labelCol={{
-        span: 4,
-      }}
-      wrapperCol={{
-        span: 14,
-      }}
-      layout="horizontal"
-      style={{
-        maxWidth: 600,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
-      <Form.Item
-        label="Product Name"
-        name="name"
-        rules={[
-          { required: true, message: "Tên category không được để trống!" },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+    <div className='d-flex justify-content-center '>
+        <form className="form-group" style={{width:"40%",padding:"20px 30px 10px 30px",background: "#001529",borderRadius:"3%",marginTop:"55px"}} id='form-data' onSubmit={handleSubmit(onHandleSubmit)}>
+              <div className="form-group">
+                <label className='text-white' htmlFor="">Category Name</label>
+                <input className="form-control" type="text" placeholder="" {...register("name")} />
+              </div>
 
-      <Form.Item>
-        <Space wrap>
-          <Button htmlType="submit" type="primary">
-            Add New Product
-          </Button>
-        </Space>
-      </Form.Item>
-    </Form>
+          <div className="form-group" style={{marginTop:"30px"}}>
+              <button type="submit" className="btn text-white" style={{background: "#0e3a63"}}>Add New Category</button>
+          </div>
+        </form>
+    </div>
   );
 };
 

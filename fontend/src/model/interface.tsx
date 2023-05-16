@@ -3,14 +3,13 @@ export interface IProduct {
   name: string;
   price: number;
   image: string;
-  // description: string;
+  description: string;
   categoryId: string;
 }
 
 export interface ICategory {
-  _id: string;
-  name: string;
-  product: string
+  _id?: string;
+  name: string
 }
 
 export interface IUser {

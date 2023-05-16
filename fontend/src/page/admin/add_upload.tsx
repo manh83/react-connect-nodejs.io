@@ -79,24 +79,45 @@ const AddProducts = (props: IProps) => {
     
 
     return (
-        <div>
-            <form id='form-data' action="" onSubmit={handleSubmit(onHandleSubmit)}>
-              <label htmlFor="">Product Name</label>
-                <input type="text" {...register("name")} />
-                <label htmlFor="">Price</label>
-                <input type="number" {...register("price")} />
-                <label htmlFor="">Category</label>
-                <select id="" {...register("categoryId")}>
-                    <option value="">Chọn</option>
-                  {props.categories.map((cate)=>{
-                      return(
-                        <option value={cate._id}>{cate.name}</option>
-                      )
-                  })}
-                </select>
-                <label htmlFor="">Image</label>
-                <input type="file" multiple id="product-image" {...register("image")} />
-                <button type="submit">Add New Product</button>
+        <div className='d-flex justify-content-center'>
+
+            <form className="form-group" style={{width:"40%",padding:"20px 30px 10px 30px",background: "#001529",borderRadius:"3%"}} id='form-data' onSubmit={handleSubmit(onHandleSubmit)}>
+                  
+                  <div className="form-group">
+                    <label className='text-white' htmlFor="">Product Name</label>
+                    <input className="form-control" type="text" placeholder="" {...register("name")} />
+                  </div>
+
+                <div className="form-group">
+                    <label className='text-white'>Price</label>
+                    <input className="form-control" type="number" placeholder="" {...register("price")} />
+                </div>
+               
+                <div className="form-group">
+                    <label className='text-white'>Category</label>
+                    <select className="form-control" {...register("categoryId")}>
+                        <option selected value="">Chọn</option>
+                        {props.categories.map((category)=>{
+                          return(
+                            <option value={category._id}>{category.name}</option>
+                          )
+                        })}
+                    </select>
+                </div>
+
+                <div className="form-group">
+                    <label  className="form-label text-white">Upload Image</label>
+                    <input className="form-control" type="file" id="product-image" multiple {...register("image")}/>
+                </div>
+
+                <div className="form-group">
+                  <label className='text-white'>Description</label>
+                  <textarea className="form-control" id="exampleFormControlTextarea1" {...register("description")} rows={3}></textarea>
+              </div>
+
+              <div className="form-group" style={{marginTop:"30px"}}>
+                  <button type="submit" className="btn text-white" style={{background: "#0e3a63"}}>Add New Products</button>
+              </div>
             </form>
         </div>
     )

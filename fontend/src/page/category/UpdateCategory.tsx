@@ -1,92 +1,51 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-
 import { useParams } from "react-router-dom";
 import { ICategory } from "../../model/interface";
-
-
-import { Button, Form, Input, Space } from "antd";
 
 
 interface IProps {
   category: ICategory[];
   onUpdate: (category: ICategory) => void;
 }
+interface IFormInput{
+  name: string;
+}  
+
 const UpdateCategory = (props: IProps) => {
   const { id } = useParams();
   const [categories, setCategories] = useState<ICategory>();
+  const {register,handleSubmit} = useForm<IFormInput>()
 
   useEffect(() => {
     const currentCategory = props.category.find((category) => category._id === id);
     setCategories(currentCategory);
-    console.log(currentCategory);
-  }, [props]);
+    // console.log(currentCategory);
+  }, [props,id]);
 
-  useEffect(() => {
-    setFields(); 
-  }, [categories])
-
-  const [form] = Form.useForm();
-  const setFields = () => {
-    form.setFieldsValue({
-      _id: categories?._id,
-      name: categories?.name
-    });
-  };
-
-  const onFinish = (values: any) => {
-    props.onUpdate(values);
-    console.log(values);
-  };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-};
+    const onHandleSubmit = handleSubmit((data:IFormInput) => {
+      const updatedCategory: ICategory = {
+        _id:  id,
+        name: data.name,
+      };
+        props.onUpdate(updatedCategory)
+        // console.log(updatedCategory);
+    })
 
   return (
-    <Form
-      form={form}
-      labelCol={{
-        span: 4,
-      }}
-      wrapperCol={{
-        span: 14,
-      }}
-      layout="horizontal"
-      style={{
-        maxWidth: 600,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
-      <Form.Item
-        label=""
-        name="_id"
-        style={{ display: "none" }} // ẩn input này đi
-        rules={[{ required: true, message: "Please input your username!" }]}
-      >
-        <Input />
-      </Form.Item>
+    <div className='d-flex justify-content-center '>
+    <form className="form-group" style={{width:"40%",padding:"20px 30px 10px 30px",background: "#001529",borderRadius:"3%",marginTop:"55px"}} id='form-data'  onSubmit={onHandleSubmit}>
+          
+          <div className="form-group">
+            <label className='text-white' htmlFor="">Category Name</label>
+            <input className="form-control" type="text" defaultValue={categories?.name} {...register("name")} />
+          </div>
 
-      <Form.Item
-        label="Name"
-        name="name"
-        rules={[
-          { required: true, message: "Tên danh mục không được để trống!" },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-
-      <Form.Item>
-        <Space wrap>
-          <Button htmlType="submit" type="primary">
-            Update Category
-          </Button>
-        </Space>
-      </Form.Item>
-    </Form>
+      <div className="form-group" style={{marginTop:"30px"}}>
+          <button type="submit" className="btn text-white" style={{background: "#0e3a63"}}>Update Category</button>
+      </div>
+    </form>
+</div>
   );
 };
 
