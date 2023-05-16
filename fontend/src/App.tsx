@@ -25,7 +25,6 @@ import Mercedes from "./page/Mercedes/mercedes";
 import AddProductPage from "./page/admin/AddProdut"
 import BMW from "./page/Mercedes/bmw";
 import Lamborghini from "./page/Mercedes/Lamborghini";
-import Upload  from "./page/admin/test";
 import AddProducts from "./page/admin/add_upload";
 import requireAdminAuth from "./page/requireAdminAuth";
 
@@ -119,9 +118,9 @@ const login = (user:IUser) => {
           <Route index element={<Dashboard />} />
           <Route  path="products">
             <Route index element={<AdminProducts products={product} onRemove={onHandleRemove}/>} />
-            <Route path="add" element={<AddProductPage onAdd={onHandleAdd}/>} />
+            {/* <Route path="add" element={<AddProductPage onAdd={onHandleAdd}/>} /> */}
             {/* <Route path="add" element={<Upload/>} /> */}
-            <Route path="add-product" element={<AddProducts onAdd={onHandleAdd}/>} />
+            <Route path="add" element={<AddProducts categories={categories} onAdd={onHandleAdd}/>} />
             <Route path=":id/update" element={<UpdateProduct products={product} onUpdate={onHandleUpdate} />} />
           </Route>
 
